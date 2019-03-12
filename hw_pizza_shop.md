@@ -60,6 +60,8 @@ when a pizza order is saved into the pizza_orders database it gains an id
 
 <!-- nil.to_i is 0 -->
 
+id should not be set when the object is created, but when it is saved to the database. when we create the object it looks for options['id'] for the value to assign it to @id, but as there is no 'id' key in the hash, it would find a value of nil.
+
 if options['id'] is nil then options['id'].to_i is 0 so the id would be set to 0. if we created multiple instances at one time then they would share id's, which should be unique.
 
 6) What are the responsibilities of `SqlRunner`?
